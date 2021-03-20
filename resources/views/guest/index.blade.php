@@ -106,11 +106,11 @@
                                     <i class="feather icon-log-in"></i> Login
                                     </a>
                                 </li>
-                                <li>
+                                <!-- <li>
                                     <a href="register">
                                     <i class="feather icon-clipboard"></i> Register
                                     </a>
-                                </li>
+                                </li> -->
                                 
                             </ul>
                         </div>
@@ -254,7 +254,7 @@
           popupAnchor: [0, 0]
         });
            
-      var amp=["แม่จัน"];
+      var amp=["แม่ลาว"];
       
       function addPin(ampName,i,mo){
         $.getJSON("{{ asset('form/getDataSurvey') }}/"+amp[i], 

@@ -27,13 +27,18 @@ Route::get('/getTumbol/{id}', 'App\Http\Controllers\FormsController@getTumbol');
 Route::get('/getVillage/{amp}/{tambol}', 'App\Http\Controllers\FormsController@getVillage');
 
 Route::POST('form/formsubmit', 'App\Http\Controllers\FormsController@formSubmit')->name('form.formsubmit');
+Route::POST('form/formupdate', 'App\Http\Controllers\FormsController@formUpdate')->name('form.formupdata');
+Route::get('/remove/{id}', 'App\Http\Controllers\FormsController@formDelete');
 
 
 Route::get('/', function () { return view('guest.index');})->name('form');
 // Route::get('/list', function () { return view('form.list');})->name('list');
-Route::get('/list', 'App\Http\Controllers\DataSurveyController@getDatatoTable');
+Route::get('/list', 'App\Http\Controllers\DataSurveyController@getDatatoTable')->name('list');;
 Route::get('/edit/{weir_code}', 'App\Http\Controllers\DataSurveyController@formEdit');
+
 
 // data to Display
 Route::get('form/getDataSurvey/{amp}', 'App\Http\Controllers\DataSurveyController@getDataSurvey')->name('form.getDataSurvey');
 
+// report
+Route::get('/pdf/{id}', 'App\Http\Controllers\ReportPDFController@pdf_index');

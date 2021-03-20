@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateWaterdeliveryInvsTable extends Migration
+class CreateUpconcreteInvsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateWaterdeliveryInvsTable extends Migration
      */
     public function up()
     {
-        Schema::create('waterdelivery_invs', function (Blueprint $table) {
-         
-            $table->char('weir_id',15)->primary();
+        Schema::create('upconcrete_invs', function (Blueprint $table) {
+            $table->increments('id');
+            $table->char('weir_id',15);
             
             $table->smallInteger('floor_erosion')->nullable();
             $table->smallInteger('floor_subsidence')->nullable();
@@ -28,6 +28,7 @@ class CreateWaterdeliveryInvsTable extends Migration
             $table->smallInteger('floor_weed')->nullable();
             $table->text('floor_damage')->nullable();
             $table->text('floor_remake')->nullable();
+            $table->smallInteger('check_floor')->nullable();
 
             $table->smallInteger('side_erosion')->nullable();
             $table->smallInteger('side_subsidence')->nullable();
@@ -41,18 +42,6 @@ class CreateWaterdeliveryInvsTable extends Migration
             $table->text('side_damage')->nullable();
             $table->text('side_remake')->nullable();
 
-            $table->smallInteger('gate_erosion')->nullable();
-            $table->smallInteger('gate_subsidence')->nullable();
-            $table->smallInteger('gate_cracking')->nullable();
-            $table->smallInteger('gate_obstruction')->nullable();
-            $table->smallInteger('gate_hole')->nullable();
-            $table->smallInteger('gate_leak')->nullable();
-            $table->smallInteger('gate_movement')->nullable();
-            $table->smallInteger('gate_drainage')->nullable();
-            $table->smallInteger('gate_weed')->nullable();
-            $table->text('gate_damage')->nullable();
-            $table->text('gate_remake')->nullable();
-
             $table->timestamps();
         });
     }
@@ -64,6 +53,6 @@ class CreateWaterdeliveryInvsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('waterdelivery_invs');
+        Schema::dropIfExists('upconcrete_invs');
     }
 }

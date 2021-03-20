@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddToDownconcreteInvsTable extends Migration
+class AddToEditLogsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddToDownconcreteInvsTable extends Migration
      */
     public function up()
     {
-        Schema::table('downconcrete_invs', function (Blueprint $table) {
-            $table->smallInteger('check_floor')->nullable();
+        Schema::table('edit_logs', function (Blueprint $table) {
+            $table->text('status')->nullable();
         });
     }
 
@@ -25,7 +25,7 @@ class AddToDownconcreteInvsTable extends Migration
      */
     public function down()
     {
-        Schema::table('downconcrete_invs', function (Blueprint $table) {
+        Schema::table('edit_logs', function (Blueprint $table) {
             //
         });
     }

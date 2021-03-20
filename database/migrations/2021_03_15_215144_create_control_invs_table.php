@@ -14,7 +14,8 @@ class CreateControlInvsTable extends Migration
     public function up()
     {
         Schema::create('control_invs', function (Blueprint $table) {
-            $table->char('weir_id',15)->primary();
+            $table->increments('id');
+            $table->char('weir_id',15);
             
             $table->smallInteger('waterctrl_erosion')->nullable();
             $table->smallInteger('waterctrl_subsidence')->nullable();
@@ -125,9 +126,6 @@ class CreateControlInvsTable extends Migration
             $table->text('bridge_remake')->nullable();
 
             $table->timestamps();
-
-            
-
         });
     }
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddToPhotosTable extends Migration
+class CreateEditLogsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class AddToPhotosTable extends Migration
      */
     public function up()
     {
-        Schema::table('photos', function (Blueprint $table) {
-            $table->foreign('weir_id')->references('weir_id')->on('weir_surveys')->onDelete('cascade');
+        Schema::create('edit_logs', function (Blueprint $table) {
+            $table->id();
+            $table->char('weir_id',15)->nullable();
+            $table->text('user')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -25,8 +28,6 @@ class AddToPhotosTable extends Migration
      */
     public function down()
     {
-        Schema::table('photos', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('edit_logs');
     }
 }

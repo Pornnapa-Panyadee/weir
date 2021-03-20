@@ -50,8 +50,8 @@ function District(id, tumbol) {
     
     // AJAX request 
     $.ajax({
-      url: 'getTumbol/' + id,
-      // url: 'http://localhost/weir-cr/public/getTumbol/' + id,
+      // url: 'getTumbol/' + id,
+      url: 'http://localhost/weir-cr/public/getTumbol/' + id,
       // url: 'https://survey.crflood.com/getTumbol/' + id,
       // url: link+'getTumbol/' + id,
       type: 'get',
@@ -92,7 +92,8 @@ function Tumbol(dis, id, vill) {
    
       // AJAX request 
       $.ajax({
-      url: 'getVillage/' + dis+"/"+ id,
+      url: 'http://localhost/weir-cr/public/getVillage/'+ dis+"/"+ id,
+      // url: 'getVillage/' + dis+"/"+ id,
       type: 'get',
       dataType: 'json',
       success: function (response) {
@@ -120,7 +121,7 @@ function Tumbol(dis, id, vill) {
         }
       });
 }
-console.log(ID);
+// console.log(ID);
 
 
 $(document).ready(function () {

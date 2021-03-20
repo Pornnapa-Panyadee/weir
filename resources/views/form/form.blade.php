@@ -29,7 +29,7 @@
       background-color: #d9d9d9;
     }#text2{
       text-align: left;
-      style="vertical-align: top;
+      vertical-align: top;
     }#text3{
       text-align: left;
       background-color: #f2f2f2;
@@ -206,9 +206,9 @@
                             <div class="card-block">
                               <div class="row">
                                 <div class="col-md-12">
-                                  <div id="wizarda">
+                                  <div id="wizard">
                                     <section>
-                                      <form class="wizard-form" id="basic-forms" action="{{route('form.formsubmit')}}" method="POST" onsubmit="return confirm('บันทึกข้อมูล เรียบร้อย !!');">
+                                      <form class="wizard-form" id="basic-forms" action="{{route('form.formsubmit')}}" enctype="multipart/form-data" method="POST" onsubmit="return confirm('บันทึกข้อมูล เรียบร้อย !!');">
                                         
                                         @csrf <!-- {{ csrf_field() }} -->   
                                         
@@ -257,20 +257,20 @@
                                                 </div>
                                               </div>
                                               <div class="col-sm-4">
-                                                <input id="weir_std_detial" name="weir_model[self][detial]"  type="text" class=" form-control" placeholder="-- แบบมาตราฐาน --">
+                                                <input id="weir_std_detial" name="weir_model[self][std_detial]"  type="text" class=" form-control" placeholder="-- แบบมาตราฐาน --">
                                               </div>
                                             </div>
                                             <div class="form-group row">
                                               <div class="col-sm-4">
                                                 <div class="border-checkbox-section">
                                                   <div class="border-checkbox-group border-checkbox-group-primary">
-                                                    <input class="border-checkbox" type="checkbox" id="weir_villager"  name="weir_model[villager][weir_villager]"  value="1">
+                                                    <input class="border-checkbox" type="checkbox" id="weir_villager"  name="weir_model[self][villager]"  value="1">
                                                     <label class="border-checkbox-label" for="weir_villager"> ก่อสร้างเองใช้แรงงานชาวบ้านใช้งบของ</label>
                                                   </div>
                                                 </div>
                                               </div>
                                               <div class="col-sm-4">
-                                                <input id="weir_villager_detial"  name="weir_model[villager][detial]" type="text" class=" form-control" placeholder="-- งบของ --">
+                                                <input id="weir_villager_detial"  name="weir_model[self][villager_detial]" type="text" class=" form-control" placeholder="-- งบของ --">
                                               </div>
                                             </div>
                                           <!-- หน่วยงานรับผิดชอบ -->
@@ -473,9 +473,9 @@
                                                     <label class="border-checkbox-label" for="door_curve">บานโค้ง</label>
                                                   </div>
                                                 </div>
-                                                <label class="col-sm-2 col-form-label "> ขนาด(กว้างxสูง) </label>
-                                                <div class="col-sm-1">
-                                                  <input id="gate_size" name="gate_dimension[size]" type="text" class=" form-control" placeholder="เมตร">
+                                                <label class="col-sm-1 col-form-label "> ขนาด </label>
+                                                <div class="col-sm-2">
+                                                  <input id="gate_size" name="gate_dimension[size]" type="text" class=" form-control" placeholder="(กว้างxสูง) เมตร">
                                                 </div>                                                                                                            
                                                 <label class="col-sm-1 col-form-label "> จำนวน </label>
                                                 <div class="col-sm-1">
@@ -553,7 +553,7 @@
                                                 <div class="col-sm-2">
                                                   <div class="border-checkbox-group border-checkbox-group-primary">
                                                     <input class="border-checkbox" type="checkbox" id="water_building_open" name="control_building_type[open]" value="1">
-                                                    <label class="border-checkbox-label" for="water_building_open">แบบเปิด</label>
+                                                    <label class="border-checkbox-label" for="water_building_open">แบบปิด</label>
                                                   </div>
                                                 </div>
                                                 <div class="col-sm-2">
@@ -599,7 +599,7 @@
                                                 <div class="col-sm-2">
                                                   <div class="border-checkbox-group border-checkbox-group-primary">
                                                     <input class="border-checkbox" type="checkbox" id="water_building_close" name="control_building_type[close]" value="1">
-                                                    <label class="border-checkbox-label" for="water_building_close">แบบปิด</label>
+                                                    <label class="border-checkbox-label" for="water_building_close">แบบเปิด</label>
                                                   </div>
                                                 </div>
                                                 <div class="col-sm-2">
@@ -717,7 +717,7 @@
                                                   </div>
                                                   <div class="col-sm-2">
                                                     <div class="border-checkbox-group border-checkbox-group-primary">
-                                                      <input class="border-checkbox" type="checkbox" id="canal_no" name="canal_has"  value="1">
+                                                      <input class="border-checkbox" type="checkbox" id="canal_no" name="canal_has"  value="0">
                                                       <label class="border-checkbox-label" for="canal_no">ไม่มี</label>
                                                     </div>
                                                    </div>                                         
@@ -874,16 +874,16 @@
                                                         <td rowspan="4" width="10%">
                                                           <table class="table2 table-borderless" id="text2" style="vertical-align: top;"> 
                                                             <tr>
-                                                              <td ><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="1_1_normal_11_no" name="floor_1_remake[check]" value="ไม่มี"><label for="1_1_normal_11_no"></label></div></td>
+                                                              <td ><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="1_1_normal_11_no" name="floor_1_remake[no]" value="1"><label for="1_1_normal_11_no"></label></div></td>
                                                               <td>ไม่มี</td>
                                                             </tr>
                                                             <tr >
-                                                              <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="1_1_normal_11_nosee" name="floor_1_remake[check]" value="มองไม่เห็น"><label for="1_1_normal_11_nosee"></label></div></td>
+                                                              <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="1_1_normal_11_nosee" name="floor_1_remake[nosee]" value="1"><label for="1_1_normal_11_nosee"></label></div></td>
                                                               <td>มองไม่เห็น</td>
                                                             </tr>
                                                             <tr>
                                                               <td > อื่นๆ </td>
-                                                              <td><input id="weir_note_r11" name="floor_1_remake[check][detail]" type="text" class=" form-control" placeholder=""> </td>
+                                                              <td><input id="weir_note_r11" name="floor_1_remake[detail]" type="text" class=" form-control" placeholder=""> </td>
                                                             </tr>
                                                             <tr><td>&nbsp;</td></tr>
                                                           </table>
@@ -965,16 +965,16 @@
                                                         <td rowspan="4" width="8%">
                                                           <table class="table2 table-borderless" id="text2" style="vertical-align: top;"> 
                                                             <tr>
-                                                              <td ><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="1_2_normal_11_no" name="side_1_remake[check]" value="ไม่มี"><label for="1_2_normal_11_no"></label></div></td>
+                                                              <td ><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="1_2_normal_11_no" name="side_1_remake[no]" value="1"><label for="1_2_normal_11_no"></label></div></td>
                                                               <td>ไม่มี</td>
                                                             </tr>
                                                             <tr >
-                                                              <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="1_2_normal_11_nosee" name="side1__remake[check]" value="มองไม่เห็น"><label for="1_2_normal_11_nosee"></label></div></td>
+                                                              <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="1_2_normal_11_nosee" name="side1__remake[nosee]" value="1"><label for="1_2_normal_11_nosee"></label></div></td>
                                                               <td>มองไม่เห็น</td>
                                                             </tr>
                                                             <tr>
                                                               <td > อื่นๆ </td>
-                                                              <td><input id="weir_note_r12" name="side_1_remake[check][detail]" type="text" class=" form-control" placeholder=""> </td>
+                                                              <td><input id="weir_note_r12" name="side_1_remake[detail]" type="text" class=" form-control" placeholder=""> </td>
                                                             </tr>
                                                             <tr><td>&nbsp;</td></tr>
                                                             </table>
@@ -1039,16 +1039,16 @@
                                                         <td rowspan="4" width="10%">
                                                           <table class="table2 table-borderless" id="text2" style="vertical-align: top;"> 
                                                             <tr>
-                                                              <td ><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="2_1_normal_11_no" name="floor_2_remark[check]" value="ไม่มี"><label for="2_1_normal_11_no"></label></div></td>
+                                                              <td ><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="2_1_normal_11_no" name="floor_2_remake[no]" value="1"><label for="2_1_normal_11_no"></label></div></td>
                                                               <td>ไม่มี</td>
                                                             </tr>
                                                             <tr >
-                                                              <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="2_1_normal_11_nosee" name="floor_2_remark[check]" value="มองไม่เห็น"><label for="2_1_normal_11_nosee"></label></div></td>
+                                                              <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="2_1_normal_11_nosee" name="floor_2_remake[nosee]" value="1"><label for="2_1_normal_11_nosee"></label></div></td>
                                                               <td>มองไม่เห็น</td>
                                                             </tr>
                                                             <tr>
                                                               <td > อื่นๆ </td>
-                                                              <td><input id="weir_note_r21" name="floor_2_remark[check][detail]" type="text" class=" form-control" placeholder=""> </td>
+                                                              <td><input id="weir_note_r21" name="floor_2_remake[detail]" type="text" class=" form-control" placeholder=""> </td>
                                                             </tr>
                                                             <tr><td>&nbsp;</td></tr>
                                                           </table>
@@ -1130,16 +1130,16 @@
                                                         <td rowspan="4" width="8%">
                                                           <table class="table2 table-borderless" id="text2" style="vertical-align: top;"> 
                                                             <tr>
-                                                             <td ><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="2_2_normal_11_no" name="side_2_remark[check]" value="ไม่มี"><label for="2_2_normal_11_no"></label></div></td>
+                                                             <td ><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="2_2_normal_11_no" name="side_2_remake[no]" value="1"><label for="2_2_normal_11_no"></label></div></td>
                                                              <td>ไม่มี</td>
                                                             </tr>
                                                             <tr >
-                                                             <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="2_2_normal_11_nosee" name="side_2_remark[check]" value="มองไม่เห็น"><label for="2_2_normal_11_nosee"></label></div></td>
+                                                             <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="2_2_normal_11_nosee" name="side_2_remake[nosee]" value="1"><label for="2_2_normal_11_nosee"></label></div></td>
                                                              <td>มองไม่เห็น</td>
                                                             </tr>
                                                             <tr>
                                                              <td > อื่นๆ </td>
-                                                             <td><input id="weir_note_r22" name="side_2_remark[check][detail]" type="text" class=" form-control" placeholder=""> </td>
+                                                             <td><input id="weir_note_r22" name="side_2_remake[detail]" type="text" class=" form-control" placeholder=""> </td>
                                                             </tr>
                                                             <tr><td>&nbsp;</td></tr>
                                                           </table>
@@ -1206,16 +1206,16 @@
                                                             <td rowspan="4" width="8%">
                                                               <table class="table2 table-borderless" id="text2" style="vertical-align: top;"> 
                                                                <tr>
-                                                                 <td ><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="3_1_normal_11_no" name="waterctrl_3_remark[check]" value="ไม่มี"><label for="3_1_normal_11_no"></label></div></td>
+                                                                 <td ><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="3_1_normal_11_no" name="waterctrl_3_remake[no]" value="1"><label for="3_1_normal_11_no"></label></div></td>
                                                                  <td>ไม่มี</td>
                                                                </tr>
                                                                <tr >
-                                                                 <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="3_1_normal_11_nosee" name="waterctrl_3_remark[check]" value="มองไม่เห็น"><label for="3_1_normal_11_nosee"></label></div></td>
+                                                                 <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="3_1_normal_11_nosee" name="waterctrl_3_remake[nosee]" value="1"><label for="3_1_normal_11_nosee"></label></div></td>
                                                                  <td>มองไม่เห็น</td>
                                                                </tr>
                                                                <tr>
                                                                  <td > อื่นๆ </td>
-                                                                 <td><input id="weir_note_r31" name="waterctrl_3_remark[check][detail]" type="text" class=" form-control" placeholder=""> </td>
+                                                                 <td><input id="weir_note_r31" name="waterctrl_3_remake[detail]" type="text" class=" form-control" placeholder=""> </td>
                                                                </tr>
                                                                  <tr><td>&nbsp;</td></tr>
                                                                 </table>
@@ -1277,16 +1277,16 @@
                                                             <td rowspan="4" width="8%">
                                                               <table class="table2 table-borderless" id="text2" style="vertical-align: top;"> 
                                                                 <tr>
-                                                                  <td ><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="3_2_normal_11_no" name="sidewall_3_remark[check]" value="ไม่มี"><label for="3_2_normal_11_no"></label></div></td>
+                                                                  <td ><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="3_2_normal_11_no" name="sidewall_3_remake[no]" value="1"><label for="3_2_normal_11_no"></label></div></td>
                                                                   <td>ไม่มี</td>
                                                                 </tr>
                                                                 <tr >
-                                                                  <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="3_2_normal_11_nosee" name="sidewall_3_remark[check]" value="มองไม่เห็น"><label for="3_2_normal_11_nosee"></label></div></td>
+                                                                  <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="3_2_normal_11_nosee" name="sidewall_3_remake[nosee]" value="1"><label for="3_2_normal_11_nosee"></label></div></td>
                                                                   <td>มองไม่เห็น</td>
                                                                 </tr>
                                                                 <tr>
                                                                   <td > อื่นๆ </td>
-                                                                  <td><input id="weir_note_r32" name="sidewall_3_remark[check][detail]" type="text" class=" form-control" placeholder=""> </td>
+                                                                  <td><input id="weir_note_r32" name="sidewall_3_remake[detail]" type="text" class=" form-control" placeholder=""> </td>
                                                                 </tr>
                                                                 <tr><td>&nbsp;</td></tr>
                                                               </table>
@@ -1351,16 +1351,16 @@
                                                                 <td rowspan="4" width="8%">
                                                                     <table class="table2 table-borderless" id="text2" style="vertical-align: top;"> 
                                                                         <tr>
-                                                                            <td ><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="3_3_1_normal_11_no" name="dgfloor_3_remark[check]" value="ไม่มี"><label for="3_3_1_normal_11_no"></label></div></td>
+                                                                            <td ><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="3_3_1_normal_11_no" name="dgfloor_3_remake[no]" value="1"><label for="3_3_1_normal_11_no"></label></div></td>
                                                                             <td>ไม่มี</td>
                                                                         </tr>
                                                                         <tr >
-                                                                            <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="3_3_1_normal_11_nosee" name="dgfloor_3_remark[check]" value="มองไม่เห็น"><label for="3_3_1_normal_11_nosee"></label></div></td>
+                                                                            <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="3_3_1_normal_11_nosee" name="dgfloor_3_remake[nosee]" value="1"><label for="3_3_1_normal_11_nosee"></label></div></td>
                                                                             <td>มองไม่เห็น</td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td > อื่นๆ </td>
-                                                                            <td><input id="weir_note_r331" name="dgfloor_3_remark[check][detail]" type="text" class=" form-control" placeholder=""> </td>
+                                                                            <td><input id="weir_note_r331" name="dgfloor_3_remake[detail]" type="text" class=" form-control" placeholder=""> </td>
 
                                                                         </tr>
                                                                         <tr><td>&nbsp;</td></tr>
@@ -1424,16 +1424,16 @@
                                                                 <td rowspan="4" width="8%">
                                                                     <table class="table2 table-borderless" id="text2" style="vertical-align: top;"> 
                                                                         <tr>
-                                                                            <td ><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="3_3_2_normal_11_no" name="dgwall_3_remark[check]" value="ไม่มี"><label for="3_3_2_normal_11_no"></label></div></td>
+                                                                            <td ><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="3_3_2_normal_11_no" name="dgwall_3_remake[no]" value="1"><label for="3_3_2_normal_11_no"></label></div></td>
                                                                             <td>ไม่มี</td>
                                                                         </tr>
                                                                         <tr >
-                                                                            <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="3_3_1_normal_11_nosee" name="dgwall_3_remark[check]" value="มองไม่เห็น"><label for="3_3_1_normal_11_nosee"></label></div></td>
+                                                                            <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="3_3_1_normal_11_nosee" name="dgwall_3_remake[nosee]" value="1"><label for="3_3_1_normal_11_nosee"></label></div></td>
                                                                             <td>มองไม่เห็น</td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td > อื่นๆ </td>
-                                                                            <td><input id="weir_note_r332" name="dgwall_3_remark[check][detail]" type="text" class=" form-control" placeholder=""> </td>
+                                                                            <td><input id="weir_note_r332" name="dgwall_3_remake[detail]" type="text" class=" form-control" placeholder=""> </td>
 
                                                                         </tr>
                                                                         <tr><td>&nbsp;</td></tr>
@@ -1497,16 +1497,16 @@
                                                                 <td rowspan="4" width="8%">
                                                                     <table class="table2 table-borderless" id="text2" style="vertical-align: top;"> 
                                                                         <tr>
-                                                                            <td ><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="3_3_3_normal_11_no" name="dggate_3_remark[check]" value="ไม่มี"><label for="3_3_3_normal_11_no"></label></div></td>
+                                                                            <td ><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="3_3_3_normal_11_no" name="dggate_3_remake[no]" value="1"><label for="3_3_3_normal_11_no"></label></div></td>
                                                                             <td>ไม่มี</td>
                                                                         </tr>
                                                                         <tr >
-                                                                            <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="3_3_1_normal_11_nosee" name="dggate_3_remark[check]" value="มองไม่เห็น"><label for="3_3_1_normal_11_nosee"></label></div></td>
+                                                                            <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="3_3_1_normal_11_nosee" name="dggate_3_remake[nosee]" value="1"><label for="3_3_1_normal_11_nosee"></label></div></td>
                                                                             <td>มองไม่เห็น</td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td > อื่นๆ </td>
-                                                                            <td><input id="weir_note_r333" name="dggate_3_remark[check][detail]" type="text" class=" form-control" placeholder=""> </td>
+                                                                            <td><input id="weir_note_r333" name="dggate_3_remake[detail]" type="text" class=" form-control" placeholder=""> </td>
 
                                                                         </tr>
                                                                         <tr><td>&nbsp;</td></tr>
@@ -1570,16 +1570,16 @@
                                                                 <td rowspan="4" width="8%">
                                                                     <table class="table2 table-borderless" id="text2" style="vertical-align: top;"> 
                                                                         <tr>
-                                                                            <td ><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="3_3_4_normal_11_no" name="dgmachanic_3_remark[check]" value="ไม่มี"><label for="3_3_4_normal_11_no"></label></div></td>
+                                                                            <td ><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="3_3_4_normal_11_no" name="dgmachanic_3_remake[no]" value="1"><label for="3_3_4_normal_11_no"></label></div></td>
                                                                             <td>ไม่มี</td>
                                                                         </tr>
                                                                         <tr >
-                                                                            <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="3_3_4_normal_11_nosee" name="dgmachanic_3_remark[check]" value="มองไม่เห็น"><label for="3_3_4_normal_11_nosee"></label></div></td>
+                                                                            <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="3_3_4_normal_11_nosee" name="dgmachanic_3_remake[nosee]" value="1"><label for="3_3_4_normal_11_nosee"></label></div></td>
                                                                             <td>มองไม่เห็น</td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td > อื่นๆ </td>
-                                                                            <td><input id="weir_note_r334" name="dgmachanic_3_remark[check][detail]" type="text" class=" form-control" placeholder=""> </td>
+                                                                            <td><input id="weir_note_r334" name="dgmachanic_3_remake[detail]" type="text" class=" form-control" placeholder=""> </td>
 
                                                                         </tr>
                                                                         <tr><td>&nbsp;</td></tr>
@@ -1643,16 +1643,16 @@
                                                                 <td rowspan="4" width="8%">
                                                                     <table class="table2 table-borderless" id="text2" style="vertical-align: top;"> 
                                                                         <tr>
-                                                                            <td ><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="3_3_5_normal_11_no" name="dgblock_3_remark[check]" value="ไม่มี"><label for="3_3_5_normal_11_no"></label></div></td>
+                                                                            <td ><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="3_3_5_normal_11_no" name="dgblock_3_remake[no]" value="1"><label for="3_3_5_normal_11_no"></label></div></td>
                                                                             <td>ไม่มี</td>
                                                                         </tr>
                                                                         <tr >
-                                                                            <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="3_3_1_normal_11_nosee" name="dgblock_3_remark[check]" value="มองไม่เห็น"><label for="3_3_1_normal_11_nosee"></label></div></td>
+                                                                            <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="3_3_1_normal_11_nosee" name="dgblock_3_remake[nosee]" value="1"><label for="3_3_1_normal_11_nosee"></label></div></td>
                                                                             <td>มองไม่เห็น</td>
                                                                         </tr>
                                                                         <tr>
                                                                             <td > อื่นๆ </td>
-                                                                            <td><input id="weir_note_r335" name="dgblock_3_remark[check][detail]" type="text" class=" form-control" placeholder=""> </td>
+                                                                            <td><input id="weir_note_r335" name="dgblock_3_remake[detail]" type="text" class=" form-control" placeholder=""> </td>
 
                                                                         </tr>
                                                                         <tr><td>&nbsp;</td></tr>
@@ -1716,16 +1716,16 @@
                                                             <td rowspan="4" width="8%">
                                                                 <table class="table2 table-borderless" id="text2" style="vertical-align: top;"> 
                                                                     <tr>
-                                                                        <td ><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="3_4_normal_11_no" name="waterbreak_3_remark[check]" value="ไม่มี"><label for="3_4_normal_11_no"></label></div></td>
+                                                                        <td ><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="3_4_normal_11_no" name="waterbreak_3_remake[no]" value="1"><label for="3_4_normal_11_no"></label></div></td>
                                                                         <td>ไม่มี</td>
                                                                     </tr>
                                                                     <tr >
-                                                                        <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="3_4_normal_11_nosee" name="waterbreak_3_remark[check]" value="มองไม่เห็น"><label for="3_4_normal_11_nosee"></label></div></td>
+                                                                        <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="3_4_normal_11_nosee" name="waterbreak_3_remake[nosee]" value="1"><label for="3_4_normal_11_nosee"></label></div></td>
                                                                         <td>มองไม่เห็น</td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td > อื่นๆ </td>
-                                                                        <td><input id="weir_note_r34" name="waterbreak_3_remark[check][detail]" type="text" class=" form-control" placeholder=""> </td>
+                                                                        <td><input id="weir_note_r34" name="waterbreak_3_remake[detail]" type="text" class=" form-control" placeholder=""> </td>
 
                                                                     </tr>
                                                                     <tr><td>&nbsp;</td></tr>
@@ -1790,16 +1790,16 @@
                                                             <td rowspan="4" width="8%">
                                                                 <table class="table2 table-borderless" id="text2" style="vertical-align: top;"> 
                                                                     <tr>
-                                                                        <td ><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="3_5_normal_11_no" name="bridge_3_remark[check]" value="ไม่มี"><label for="3_5_normal_11_no"></label></div></td>
+                                                                        <td ><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="3_5_normal_11_no" name="bridge_3_remake[no]" value="1"><label for="3_5_normal_11_no"></label></div></td>
                                                                         <td>ไม่มี</td>
                                                                     </tr>
                                                                     <tr >
-                                                                        <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="3_5_normal_11_nosee" name="bridge_3_remark[check]" value="มองไม่เห็น"><label for="3_5_normal_11_nosee"></label></div></td>
+                                                                        <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="3_5_normal_11_nosee" name="bridge_3_remake[nosee]" value="1"><label for="3_5_normal_11_nosee"></label></div></td>
                                                                         <td>มองไม่เห็น</td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td > อื่นๆ </td>
-                                                                        <td><input id="weir_note_r3" name="bridge_3_remark[check][detail]" type="text" class=" form-control" placeholder=""> </td>
+                                                                        <td><input id="weir_note_r3" name="bridge_3_remake[detail]" type="text" class=" form-control" placeholder=""> </td>
 
                                                                     </tr>
                                                                     <tr><td>&nbsp;</td></tr>
@@ -1869,16 +1869,16 @@
                                                             <td rowspan="4" width="10%">
                                                                 <table class="table2 table-borderless" id="text2" style="vertical-align: top;"> 
                                                                     <tr>
-                                                                        <td ><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="4_1_normal_11_no" name="floor_4_remake[check]" value="ไม่มี"><label for="4_1_normal_11_no"></label></div></td>
+                                                                        <td ><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="4_1_normal_11_no" name="floor_4_remake[no]" value="1"><label for="4_1_normal_11_no"></label></div></td>
                                                                         <td>ไม่มี</td>
                                                                     </tr>
                                                                     <tr >
-                                                                        <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="4_1_normal_11_nosee" name="floor_4_remake[check]" value="มองไม่เห็น"><label for="4_1_normal_11_nosee"></label></div></td>
+                                                                        <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="4_1_normal_11_nosee" name="floor_4_remake[nosee]" value="1"><label for="4_1_normal_11_nosee"></label></div></td>
                                                                         <td>มองไม่เห็น</td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td > อื่นๆ </td>
-                                                                        <td><input id="weir_note_r41" name="floor_4_remake[check][detail]" type="text" class=" form-control" placeholder=""> </td>
+                                                                        <td><input id="weir_note_r41" name="floor_4_remake[detail]" type="text" class=" form-control" placeholder=""> </td>
 
                                                                     </tr>
                                                                     <tr><td>&nbsp;</td></tr>
@@ -1964,16 +1964,16 @@
                                                             <td rowspan="4" width="8%">
                                                                 <table class="table2 table-borderless" id="text2" style="vertical-align: top;"> 
                                                                     <tr>
-                                                                        <td ><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="4_2_normal_11_no" name="side_4_remake[check]" value="ไม่มี"><label for="4_2_normal_11_no"></label></div></td>
+                                                                        <td ><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="4_2_normal_11_no" name="side_4_remake[no]" value="1"><label for="4_2_normal_11_no"></label></div></td>
                                                                         <td>ไม่มี</td>
                                                                     </tr>
                                                                     <tr >
-                                                                        <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="4_2_normal_11_nosee" name="side_4_remake[check]" value="มองไม่เห็น"><label for="4_2_normal_11_nosee"></label></div></td>
+                                                                        <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="4_2_normal_11_nosee" name="side_4_remake[nosee]" value="1"><label for="4_2_normal_11_nosee"></label></div></td>
                                                                         <td>มองไม่เห็น</td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td > อื่นๆ </td>
-                                                                        <td><input id="weir_note_r42" name="side_4_remake[check][detail]" type="text" class=" form-control" placeholder=""> </td>
+                                                                        <td><input id="weir_note_r42" name="side_4_remake[detail]" type="text" class=" form-control" placeholder=""> </td>
 
                                                                     </tr>
                                                                     <tr><td>&nbsp;</td></tr>
@@ -2039,16 +2039,16 @@
                                                             <td rowspan="4" width="8%">
                                                                 <table class="table2 table-borderless" id="text2" style="vertical-align: top;"> 
                                                                     <tr>
-                                                                        <td ><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="4_3_normal_11_no" name="flrblock_4_remake[check]" value="ไม่มี"><label for="4_3_normal_11_no"></label></div></td>
+                                                                        <td ><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="4_3_normal_11_no" name="flrblock_4_remake[no]" value="1"><label for="4_3_normal_11_no"></label></div></td>
                                                                         <td>ไม่มี</td>
                                                                     </tr>
                                                                     <tr >
-                                                                        <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="4_3_normal_11_nosee" name="flrblock_4_remake[check]" value="มองไม่เห็น"><label for="4_3_normal_11_nosee"></label></div></td>
+                                                                        <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="4_3_normal_11_nosee" name="flrblock_4_remake[nosee]" value="1"><label for="4_3_normal_11_nosee"></label></div></td>
                                                                         <td>มองไม่เห็น</td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td > อื่นๆ </td>
-                                                                        <td><input id="weir_note_r43" name="flrblock_4_remake[check][detail]" type="text" class=" form-control" placeholder=""> </td>
+                                                                        <td><input id="weir_note_r43" name="flrblock_4_remake[detail]" type="text" class=" form-control" placeholder=""> </td>
 
                                                                     </tr>
                                                                     <tr><td>&nbsp;</td></tr>
@@ -2112,16 +2112,16 @@
                                                             <td rowspan="4" width="8%">
                                                                 <table class="table2 table-borderless" id="text2" style="vertical-align: top;"> 
                                                                     <tr>
-                                                                        <td ><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="4_4_normal_11_no" name="endsill_4_remake[check]" value="ไม่มี"><label for="4_4_normal_11_no"></label></div></td>
+                                                                        <td ><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="4_4_normal_11_no" name="endsill_4_remake[no]" value="1"><label for="4_4_normal_11_no"></label></div></td>
                                                                         <td>ไม่มี</td>
                                                                     </tr>
                                                                     <tr >
-                                                                        <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="4_4_normal_11_nosee" name="endsill_4_remake[check]" value="มองไม่เห็น"><label for="4_4_normal_11_nosee"></label></div></td>
+                                                                        <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="4_4_normal_11_nosee" name="endsill_4_remake[nosee]" value="1"><label for="4_4_normal_11_nosee"></label></div></td>
                                                                         <td>มองไม่เห็น</td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td > อื่นๆ </td>
-                                                                        <td><input id="weir_note_r44" name="endsill_4_remake[check][detail]" type="text" class=" form-control" placeholder=""> </td>
+                                                                        <td><input id="weir_note_r44" name="endsill_4_remake[detail]" type="text" class=" form-control" placeholder=""> </td>
 
                                                                     </tr>
                                                                     <tr><td>&nbsp;</td></tr>
@@ -2189,16 +2189,16 @@
                                                             <td rowspan="4" width="10%">
                                                                 <table class="table2 table-borderless" id="text2" style="vertical-align: top;"> 
                                                                     <tr>
-                                                                        <td ><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="5_1_normal_11_no" name="floor_5_remake[check]" value="ไม่มี"><label for="5_1_normal_11_no"></label></div></td>
+                                                                        <td ><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="5_1_normal_11_no" name="floor_5_remake[no]" value="1"><label for="5_1_normal_11_no"></label></div></td>
                                                                         <td>ไม่มี</td>
                                                                     </tr>
                                                                     <tr >
-                                                                        <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="5_1_normal_11_nosee" name="floor_5_remake[check]" value="มองไม่เห็น"><label for="5_1_normal_11_nosee"></label></div></td>
+                                                                        <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="5_1_normal_11_nosee" name="floor_5_remake[nosee]" value="1"><label for="5_1_normal_11_nosee"></label></div></td>
                                                                         <td>มองไม่เห็น</td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td > อื่นๆ </td>
-                                                                        <td><input id="weir_note_r51" name="floor_5_remake[check][detail]" type="text" class=" form-control" placeholder=""> </td>
+                                                                        <td><input id="weir_note_r51" name="floor_5_remake[detail]" type="text" class=" form-control" placeholder=""> </td>
 
                                                                     </tr>
                                                                     <tr><td>&nbsp;</td></tr>
@@ -2284,16 +2284,16 @@
                                                             <td rowspan="4" width="8%">
                                                                 <table class="table2 table-borderless" id="text2" style="vertical-align: top;"> 
                                                                     <tr>
-                                                                        <td ><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="5_2_normal_11_no" name="side_5_remake[check]" value="ไม่มี"><label for="5_2_normal_11_no"></label></div></td>
+                                                                        <td ><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="5_2_normal_11_no" name="side_5_remake[no]" value="1"><label for="5_2_normal_11_no"></label></div></td>
                                                                         <td>ไม่มี</td>
                                                                     </tr>
                                                                     <tr >
-                                                                        <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="5_2_normal_11_nosee" name="side_5_remake[check]" value="มองไม่เห็น"><label for="5_2_normal_11_nosee"></label></div></td>
+                                                                        <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="5_2_normal_11_nosee" name="side_5_remake[nosee]" value="1"><label for="5_2_normal_11_nosee"></label></div></td>
                                                                         <td>มองไม่เห็น</td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td > อื่นๆ </td>
-                                                                        <td><input id="weir_note_r52" name="side_5_remake[check][detail]" type="text" class=" form-control" placeholder=""> </td>
+                                                                        <td><input id="weir_note_r52" name="side_5_remake[detail]" type="text" class=" form-control" placeholder=""> </td>
 
                                                                     </tr>
                                                                     <tr><td>&nbsp;</td></tr>
@@ -2360,16 +2360,16 @@
                                                             <td rowspan="4" width="10%">
                                                                 <table class="table2 table-borderless" id="text2" style="vertical-align: top;"> 
                                                                     <tr>
-                                                                        <td ><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="6_1_normal_11_no" name="floor_6_remake[check]" value="ไม่มี"><label for="6_1_normal_11_no"></label></div></td>
+                                                                        <td ><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="6_1_normal_11_no" name="floor_6_remake[no]" value="1"><label for="6_1_normal_11_no"></label></div></td>
                                                                         <td>ไม่มี</td>
                                                                     </tr>
                                                                     <tr >
-                                                                        <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="6_1_normal_11_nosee" name="floor_6_remake[check]" value="มองไม่เห็น"><label for="6_1_normal_11_nosee"></label></div></td>
+                                                                        <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="6_1_normal_11_nosee" name="floor_6_remake[nosee]" value="1"><label for="6_1_normal_11_nosee"></label></div></td>
                                                                         <td>มองไม่เห็น</td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td > อื่นๆ </td>
-                                                                        <td><input id="weir_note_r61" name="floor_6_remake[check][detail]" type="text" class=" form-control" placeholder=""> </td>
+                                                                        <td><input id="weir_note_r61" name="floor_6_remake[detail]" type="text" class=" form-control" placeholder=""> </td>
 
                                                                     </tr>
                                                                     <tr><td>&nbsp;</td></tr>
@@ -2394,9 +2394,9 @@
                                                             <td>
                                                                 <table class="table2 table-borderless" id="text2"> 
                                                                     <tr>
-                                                                        <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="6_1_sed_n" name="6_1_check" value="ปกติ"><label for="6_1_sed_n"></label></div></td>
+                                                                        <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="6_1_sed_n" name="check_floor_6" value="ปกติ"><label for="6_1_sed_n"></label></div></td>
                                                                         <td>ปกติ</td>
-                                                                        <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="6_1_sed_l" name="6_1_check" value="น้อย"><label for="6_1_sed_l"></label></div></td>
+                                                                        <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="6_1_sed_l" name="check_floor_6" value="น้อย"><label for="6_1_sed_l"></label></div></td>
                                                                         <td>น้อย</td>
                                                                     </tr>
                                                                 </table>
@@ -2417,9 +2417,9 @@
                                                             <td>
                                                                 <table class="table2 table-borderless" id="text2"> 
                                                                     <tr>
-                                                                        <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="6_1_sed_md" name="6_1_check" value="กลาง"><label for="6_1_sed_md"></label></div></td>
+                                                                        <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="6_1_sed_md" name="check_floor_6" value="กลาง"><label for="6_1_sed_md"></label></div></td>
                                                                         <td>กลาง</td>
-                                                                        <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="6_1_sed_m" name="6_1_check" value="มาก"><label for="6_1_sed_m"></label></div></td>
+                                                                        <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="6_1_sed_m" name="check_floor_6" value="มาก"><label for="6_1_sed_m"></label></div></td>
                                                                         <td>มาก</td>
                                                                     </tr>
                                                                 </table>
@@ -2456,16 +2456,16 @@
                                                             <td rowspan="4" width="8%">
                                                                 <table class="table2 table-borderless" id="text2" style="vertical-align: top;"> 
                                                                     <tr>
-                                                                        <td ><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="6_2_normal_11_no" name="5_side_remake[check]" value="ไม่มี"><label for="6_2_normal_11_no"></label></div></td>
+                                                                        <td ><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="6_2_normal_11_no" name="5_side_remake[no]" value="1"><label for="6_2_normal_11_no"></label></div></td>
                                                                         <td>ไม่มี</td>
                                                                     </tr>
                                                                     <tr >
-                                                                        <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="6_2_normal_11_nosee" name="5_side_remake[check]" value="มองไม่เห็น"><label for="6_2_normal_11_nosee"></label></div></td>
+                                                                        <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="6_2_normal_11_nosee" name="5_side_remake[nosee]" value="1"><label for="6_2_normal_11_nosee"></label></div></td>
                                                                         <td>มองไม่เห็น</td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td > อื่นๆ </td>
-                                                                        <td><input id="weir_note_r62" name="5_side_remake[check][detail]" type="text" class=" form-control" placeholder=""> </td>
+                                                                        <td><input id="weir_note_r62" name="5_side_remake[detail]" type="text" class=" form-control" placeholder=""> </td>
 
                                                                     </tr>
                                                                     <tr><td>&nbsp;</td></tr>
@@ -2532,16 +2532,16 @@
                                                             <td rowspan="4" width="8%">
                                                                 <table class="table2 table-borderless" id="text2" style="vertical-align: top;"> 
                                                                     <tr>
-                                                                        <td ><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="6_3_normal_11_no" name="gate_6_remake[check]" value="ไม่มี"><label for="6_3_normal_11_no"></label></div></td>
+                                                                        <td ><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="6_3_normal_11_no" name="gate_6_remake[no]" value="1"><label for="6_3_normal_11_no"></label></div></td>
                                                                         <td>ไม่มี</td>
                                                                     </tr>
                                                                     <tr >
-                                                                        <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="6_3_normal_11_nosee" name="gate_6_remake[check]" value="มองไม่เห็น"><label for="6_3_normal_11_nosee"></label></div></td>
+                                                                        <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="6_3_normal_11_nosee" name="gate_6_remake[nosee]" value="1"><label for="6_3_normal_11_nosee"></label></div></td>
                                                                         <td>มองไม่เห็น</td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td > อื่นๆ </td>
-                                                                        <td><input id="weir_note_r63" name="gate_6_remake[check][detail]" type="text" class=" form-control" placeholder=""> </td>
+                                                                        <td><input id="weir_note_r63" name="gate_6_remake[detail]" type="text" class=" form-control" placeholder=""> </td>
 
                                                                     </tr>
                                                                     <tr><td>&nbsp;</td></tr>
@@ -2713,10 +2713,31 @@
                                                 <input type="file" id="water_system" name="water_system[]" multiple />
                                                </div>
                                             </div>
-                                            <div class="form-group row" >
-                                              <button type="submit" class="btn waves-effect waves-light btn-primary btn-block" >บันทึกข้อมูล</button>
+                                           
+                                          </fieldset>
+
+                                        <h3> บันทึกข้อมูล </h3>
+                                          <fieldset>
+                                            <br>
+                                            <div class="page-body">
+                                              <div class="row">
+                                                <div class="col-3"></div>
+                                                <div class="col-6">
+                                                  <div class="card o-visible">
+                                                      <div class="card-header" align="center"> 
+                                                          <h3>กรุณาตรวจสอบข้อมูล <br>ให้เรียบร้อยก่อนการบันทึก </h3>
+                                                      </div>
+                                                      <div class="card-block" align="center">
+                                                        <img src="{{ asset('images/icon/green-check.jpg') }}" width="50%">
+                                                        <br>
+                                                        <button type="submit" class="btn waves-effect waves-light btn-primary btn-block" >บันทึกข้อมูล</button>
+                                                      </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+
                                             </div>
-                                        </fieldset>
+                                          </fieldset>
                                                                                    
                                       </form>
                                     </section>

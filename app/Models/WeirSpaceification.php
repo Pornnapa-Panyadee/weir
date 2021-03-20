@@ -20,6 +20,7 @@ class WeirSpaceification extends Model
         'gate_machanic_type',
         'control_building_has',
         'control_building_type',
+        'conttrol_building_loc',
         'control_building_gate_has',
         'control_building_gate_type',
         'control_building_gate_dimension',

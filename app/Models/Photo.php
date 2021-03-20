@@ -12,6 +12,7 @@ class Photo extends Model
     protected $fillable = [
         'photo_id',
         'weir_id',
+        'photo_type',
         'photo_filename',
         'thumbnall_filename',
     ];

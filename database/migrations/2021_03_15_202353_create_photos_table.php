@@ -14,8 +14,10 @@ class CreatePhotosTable extends Migration
     public function up()
     {
         Schema::create('photos', function (Blueprint $table) {
-            $table->char('photo_id',15)->primary();
-            $table->char('weir_id',15)->nullable();
+            $table->id();
+            $table->char('photo_id',15)->nullable();
+            $table->text('weir_id')->nullable();
+            $table->text('photo_type')->nullable();
             $table->text('photo_filename')->nullable();
             $table->text('thumbnall_filename')->nullable();
 

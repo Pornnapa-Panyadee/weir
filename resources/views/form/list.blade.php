@@ -23,11 +23,17 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/form/jquery.steps.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/form/style.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/form/pages.css')}}">
+
+    <style>
+      #fix-header{
+        font-size:13px;
+      }
+    </style>
   
 
 </head>
 
-<body onload="initProj4js()">
+<body >
     
     @yield('content')
     <div class="loader-bg">
@@ -104,9 +110,9 @@
                                                                               <td>{{$dataUser[$i]['date']}}</td>
                                                                               
                                                                               <td align="center"> 
-                                                                                <button class="btn waves-effect waves-dark btn-mini btn-info btn-outline-info"><i class="icofont icofont-eye-alt"></i></button>
-                                                                                <button class="btn waves-effect waves-dark btn-mini btn-warning btn-outline-warning"><i class="icofont icofont-edit-alt"></i></button>
-                                                                                <button class="btn waves-effect waves-dark btn-mini btn-danger btn-outline-danger"><i class="icofont icofont-delete-alt"></i></button>
+                                                                                <a href='{{ asset('/pdf') }}/{{$dataUser[$i]['weir_code']}}' ><button class="btn waves-effect waves-dark btn-mini btn-info btn-outline-info"><i class="icofont icofont-eye-alt"></i></button></a>
+                                                                                <a href='{{ asset('/edit') }}/{{$dataUser[$i]['weir_code']}}' ><button class="btn waves-effect waves-dark btn-mini btn-warning btn-outline-warning"><i class="icofont icofont-edit-alt"></i></button> </a>
+                                                                                <a href='{{ asset('/remove') }}/{{$dataUser[$i]['weir_code']}}' ><button class="btn waves-effect waves-dark btn-mini btn-danger btn-outline-danger" onclick="myFunction()"><i class="icofont icofont-delete-alt"></i></button></a>
                                                                               </td>
                                                                             </tr>
                                                                           <?php } ?>                                              
@@ -147,7 +153,11 @@
     </div>
 
 
-
+    <script>
+      function myFunction() {
+        confirm("คุณต้องการลบข้อมูลฝายใช่ไหม?");
+      }
+    </script>
 
     <script src="{{ asset('js/form/jquery.min.js')}}"></script>
     <script src="{{ asset('js/form/jquery-ui.min.js')}}"></script>

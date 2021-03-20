@@ -14,8 +14,9 @@ class CreateDownprotectionInvsTable extends Migration
     public function up()
     {
         Schema::create('downprotection_invs', function (Blueprint $table) {
-            $table->char('weir_id',15)->primary();
-
+            $table->increments('id');
+            $table->char('weir_id',15);
+            
             $table->smallInteger('floor_erosion')->nullable();
             $table->smallInteger('floor_subsidence')->nullable();
             $table->smallInteger('floor_cracking')->nullable();
@@ -27,6 +28,7 @@ class CreateDownprotectionInvsTable extends Migration
             $table->smallInteger('floor_weed')->nullable();
             $table->text('floor_damage')->nullable();
             $table->text('floor_remake')->nullable();
+            $table->smallInteger('check_floor')->nullable();
 
             $table->smallInteger('side_erosion')->nullable();
             $table->smallInteger('side_subsidence')->nullable();

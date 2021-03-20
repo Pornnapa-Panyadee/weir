@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddToWaterdeliveryInvsTable extends Migration
+class AddToWeirSpaceificationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddToWaterdeliveryInvsTable extends Migration
      */
     public function up()
     {
-        Schema::table('waterdelivery_invs', function (Blueprint $table) {
-            $table->smallInteger('check_floor')->nullable();
+        Schema::table('weir_spaceifications', function (Blueprint $table) {
+            $table->text('conttrol_building_loc')->nullable();
         });
     }
 
@@ -25,7 +25,7 @@ class AddToWaterdeliveryInvsTable extends Migration
      */
     public function down()
     {
-        Schema::table('waterdelivery_invs', function (Blueprint $table) {
+        Schema::table('weir_spaceifications', function (Blueprint $table) {
             //
         });
     }
