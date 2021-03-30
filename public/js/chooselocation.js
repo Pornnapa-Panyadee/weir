@@ -1,6 +1,6 @@
 
-// var ID = window.location.href.replace("https://survey.crflood.com/blockage/", "");
-var ID = window.location.href.replace("http://localhost/weir-cr/public/", "");
+var ID = window.location.href.replace("http://weir.crflood.com/", "");
+// var ID = window.location.href.replace("http://localhost/weir-cr/public/", "");
 // alert(ID);
 
 function Province(id,district) {
@@ -51,8 +51,8 @@ function District(id, tumbol) {
     // AJAX request 
     $.ajax({
       // url: 'getTumbol/' + id,
-      url: 'http://localhost/weir-cr/public/getTumbol/' + id,
-      // url: 'https://survey.crflood.com/getTumbol/' + id,
+      // url: 'http://localhost/weir-cr/public/getTumbol/' + id,
+      url: 'http://weir.crflood.com/getTumbol/' + id,
       // url: link+'getTumbol/' + id,
       type: 'get',
       dataType: 'json',
@@ -92,7 +92,7 @@ function Tumbol(dis, id, vill) {
    
       // AJAX request 
       $.ajax({
-      url: 'http://localhost/weir-cr/public/getVillage/'+ dis+"/"+ id,
+      url: 'http://weir.crflood.com/getVillage/'+ dis+"/"+ id,
       // url: 'getVillage/' + dis+"/"+ id,
       type: 'get',
       dataType: 'json',

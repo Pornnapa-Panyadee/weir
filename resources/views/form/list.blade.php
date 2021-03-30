@@ -110,9 +110,9 @@
                                                                               <td>{{$dataUser[$i]['date']}}</td>
                                                                               
                                                                               <td align="center"> 
-                                                                                <a href='{{ asset('/pdf') }}/{{$dataUser[$i]['weir_code']}}' ><button class="btn waves-effect waves-dark btn-mini btn-info btn-outline-info"><i class="icofont icofont-eye-alt"></i></button></a>
-                                                                                <a href='{{ asset('/edit') }}/{{$dataUser[$i]['weir_code']}}' ><button class="btn waves-effect waves-dark btn-mini btn-warning btn-outline-warning"><i class="icofont icofont-edit-alt"></i></button> </a>
-                                                                                <a href='{{ asset('/remove') }}/{{$dataUser[$i]['weir_code']}}' ><button class="btn waves-effect waves-dark btn-mini btn-danger btn-outline-danger" onclick="myFunction()"><i class="icofont icofont-delete-alt"></i></button></a>
+                                                                                <a href='{{ asset('/pdf') }}/{{$dataUser[$i]['weir_code']}}' target=\"_blank\" ><button class="btn waves-effect waves-dark btn-mini btn-info btn-outline-info"><i class="icofont icofont-eye-alt"></i></button></a>
+                                                                                <a href='{{ asset('/edit') }}/{{$dataUser[$i]['weir_code']}}' target=\"_blank\"><button class="btn waves-effect waves-dark btn-mini btn-warning btn-outline-warning"><i class="icofont icofont-edit-alt"></i></button> </a>
+                                                                                <a href='{{ asset('/remove') }}/{{$dataUser[$i]['weir_code']}}' target=\"_blank\"><button class="btn waves-effect waves-dark btn-mini btn-danger btn-outline-danger" onclick="myFunction()"><i class="icofont icofont-delete-alt"></i></button></a>
                                                                               </td>
                                                                             </tr>
                                                                           <?php } ?>                                              

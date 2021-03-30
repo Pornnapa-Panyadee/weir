@@ -241,7 +241,7 @@
                                               return $text;
                                             }
                                             function addZero($t) {
-                                                if($t==0){
+                                                if($t!=NULL){
                                                     $text='value=0 checked';
                                                 }else{
                                                   $text='value=0';
